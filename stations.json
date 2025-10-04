@@ -1,7 +1,7 @@
 [
   {
     "name": "Hay Vida En Jesús",
-    "url": "http://s2.myradiostream.com:5456/stream",
+    "url": "https://cors-anywhere.herokuapp.com/http://s2.myradiostream.com:5456/stream",
     "genre": "Cristiana",
     "bitrate": "128kbps",
     "country": "Bolivia",
