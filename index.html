@@ -3,49 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hay Vida En Jesus</title>
+  <title>Hay Vida En Jesús</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .player {
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    #play-pause {
+      background:#1ea7fd;
+      border:none;
+      padding:15px 25px;
+      border-radius:12px;
+      font-size:1.5rem;
+      font-weight:bold;
+      cursor:pointer;
+      color:#02111a;
+      box-shadow:0 4px 8px rgba(0,0,0,0.3);
+      transition:0.3s;
+    }
+
+    #play-pause:hover {
+      transform:scale(1.05);
+    }
+
+    h1 {
+      font-size:2rem;
+      text-align:center;
+      color:white;
+      text-shadow:2px 2px 8px rgba(0,0,0,0.7);
+    }
+  </style>
 </head>
 <body>
-  <main class="container">
-    <header>
-      <h1>Hay Vida En Jesus</h1>
-      <p class="subtitle">Escucha estaciones online. Añade tu propia URL de streaming.</p>
-    </header>
+  <div class="player">
+    <h1>HAY VIDA EN JESÚS</h1>
+    <button id="play-pause">▶ Reproducir</button>
+    <audio id="audio" src="https://stream.zeno.fm/x1egfvxsjb3tv" crossorigin="anonymous"></audio>
+  </div>
 
-    <section class="player">
-      <div class="now">
-        <div id="station-name">—</div>
-        <div id="now-playing">Presiona una estación para comenzar</div>
-      </div>
-      <div class="controls">
-        <button id="play-pause" aria-label="Reproducir/Pausar">▶︎</button>
-        <input id="volume" type="range" min="0" max="1" step="0.01" value="1">
-        <button id="mute">🔊</button>
-      </div>
-    </section>
+  <script>
+    const audio = document.getElementById('audio');
+    const button = document.getElementById('play-pause');
+    let isPlaying = false;
 
-    <section class="stations">
-      <h2>Estaciones</h2>
-      <ul id="stations-list"></ul>
-    </section>
-
-    <section class="add-station">
-      <h3>Añadir estación</h3>
-      <form id="add-form">
-        <input id="new-name" placeholder="Nombre de la estación" required>
-        <input id="new-url" placeholder="URL de streaming (mp3/aac/ogg)" required>
-        <button type="submit">Añadir</button>
-      </form>
-    </section>
-
-    <footer>
-      <small>Proyecto de ejemplo — Ciertos streams pueden bloquearse por CORS o requisito de referer.</small>
-    </footer>
-
-  </main>
-
-  <audio id="audio" crossorigin="anonymous"></audio>
-  <script src="app.js"></script>
+    button.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = "▶ Reproducir";
+      } else {
+        audio.play();
+        button.textContent = "⏸ Pausar";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
 </body>
 </html>
