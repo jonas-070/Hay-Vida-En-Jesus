@@ -1,24 +1,194 @@
-:root{ --bg:#0f1720; --card:#0b1220; --accent:#1ea7fd; --muted:#9aa4b2; --glass: rgba(255,255,255,0.03)}
-*{box-sizing:border-box}
-html,body,#root{height:100%}
-body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial;color:#e6eef6;background:linear-gradient(180deg,#071426 0%, #0b1b2b 100%);-webkit-font-smoothing:antialiased}
-.container{max-width:920px;margin:28px auto;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;color:#dbe9fb}
-header h1{margin:0;font-size:1.6rem}
-.subtitle{margin:6px 0 18px;color:var(--muted)}
-.player{display:flex;justify-content:space-between;align-items:center;padding:12px;border-radius:10px;background:var(--glass);margin-bottom:16px}
-.now{flex:1}
-#station-name{font-weight:700}
-#now-playing{color:var(--muted);font-size:0.9rem}
-.controls{display:flex;gap:10px;align-items:center}
-.controls button{background:var(--accent);border:none;padding:8px 12px;border-radius:8px;color:#02111a;cursor:pointer}
-.controls input[type=range]{width:120px}
-.stations h2{margin:0 0 8px}
-#stations-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
-.station{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);cursor:pointer;display:flex;flex-direction:column}
-.station small{color:var(--muted);font-size:0.85rem}
-.add-station{margin-top:16px}
-.add-station form{display:flex;gap:8px;flex-wrap:wrap}
-.add-station input{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-.add-station button{padding:8px 12px;border-radius:8px;border:none;background:var(--accent);color:#02111a}
-footer{margin-top:16px;color:var(--muted);font-size:0.8rem;text-align:center}
-@media (max-width:520px){.controls input[type=range]{width:80px}}
+:root {
+  --bg:#0f1720;
+  --card:#0b1220;
+  --accent:#1ea7fd;
+  --muted:#9aa4b2;
+  --glass: rgba(255,255,255,0.03);
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html, body, #root {
+  height:100%;
+}
+
+body {
+  margin:0;
+  font-family:Inter,Segoe UI,Roboto,Arial;
+  background-image: url("imagenes/fondo.jpg"); /* 👈 tu foto de fondo */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-font-smoothing:antialiased;
+  color:#e6eef6;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+  max-width:920px;
+  margin:28px auto;
+  padding:20px;
+  background:rgba(0,0,0,0.5); /* fondo semitransparente para que se lea el texto */
+  border-radius:12px;
+  color:#dbe9fb;
+}
+
+/* MENSAJE PRINCIPAL "HAY VIDA EN JESÚS" */
+.mensaje {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+  color:white;
+  text-shadow:2px 2px 8px rgba(0,0,0,0.7);
+  font-size:3rem;
+  font-weight:bold;
+  opacity:0;
+  animation: aparecer 3s ease-in-out forwards, brillo 3s ease-in-out 3s infinite alternate;
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+  0% {
+    opacity:0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de brillo/parpadeo suave */
+@keyframes brillo {
+  0% {
+    text-shadow:2px 2px 8px rgba(255,255,255,0.3);
+  }
+  100% {
+    text-shadow:0 0 20px rgba(255,255,255,0.9),
+                 0 0 40px rgba(30,167,253,0.6);
+  }
+}
+
+/* RESTO DE TU ESTILO ORIGINAL */
+header h1 {
+  margin:0;
+  font-size:1.6rem;
+}
+
+.subtitle {
+  margin:6px 0 18px;
+  color:var(--muted);
+}
+
+.player {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px;
+  border-radius:10px;
+  background:var(--glass);
+  margin-bottom:16px;
+}
+
+.now {
+  flex:1;
+}
+
+#station-name {
+  font-weight:700;
+}
+
+#now-playing {
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+.controls {
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.controls button {
+  background:var(--accent);
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  color:#02111a;
+  cursor:pointer;
+}
+
+.controls input[type=range] {
+  width:120px;
+}
+
+.stations h2 {
+  margin:0 0 8px;
+}
+
+#stations-list {
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:8px;
+}
+
+.station {
+  padding:10px;
+  border-radius:8px;
+  background:rgba(255,255,255,0.02);
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+}
+
+.station small {
+  color:var(--muted);
+  font-size:0.85rem;
+}
+
+.add-station {
+  margin-top:16px;
+}
+
+.add-station form {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.add-station input {
+  flex:1;
+  padding:8px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.04);
+  background:transparent;
+  color:inherit;
+}
+
+.add-station button {
+  padding:8px 12px;
+  border-radius:8px;
+  border:none;
+  background:var(--accent);
+  color:#02111a;
+}
+
+footer {
+  margin-top:16px;
+  color:var(--muted);
+  font-size:0.8rem;
+  text-align:center;
+}
+
+@media (max-width:520px) {
+  .controls input[type=range] {
+    width:80px;
+  }
+}
