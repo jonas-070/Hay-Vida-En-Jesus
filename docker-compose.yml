@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  icecast:
+    image: linuxserver/icecast:latest
+    container_name: icecast
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/La_Paz
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./icecast/icecast.xml:/config/icecast.xml:ro
+    restart: unless-stopped

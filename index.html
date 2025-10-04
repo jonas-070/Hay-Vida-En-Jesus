@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hay Vida En Jesus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Hay Vida En Jesus</h1>
+      <p class="subtitle">Escucha estaciones online. Añade tu propia URL de streaming.</p>
+    </header>
+
+    <section class="player">
+      <div class="now">
+        <div id="station-name">—</div>
+        <div id="now-playing">Presiona una estación para comenzar</div>
+      </div>
+      <div class="controls">
+        <button id="play-pause" aria-label="Reproducir/Pausar">▶︎</button>
+        <input id="volume" type="range" min="0" max="1" step="0.01" value="1">
+        <button id="mute">🔊</button>
+      </div>
+    </section>
+
+    <section class="stations">
+      <h2>Estaciones</h2>
+      <ul id="stations-list"></ul>
+    </section>
+
+    <section class="add-station">
+      <h3>Añadir estación</h3>
+      <form id="add-form">
+        <input id="new-name" placeholder="Nombre de la estación" required>
+        <input id="new-url" placeholder="URL de streaming (mp3/aac/ogg)" required>
+        <button type="submit">Añadir</button>
+      </form>
+    </section>
+
+    <footer>
+      <small>Proyecto de ejemplo — Ciertos streams pueden bloquearse por CORS o requisito de referer.</small>
+    </footer>
+
+  </main>
+
+  <audio id="audio" crossorigin="anonymous"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
