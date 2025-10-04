@@ -41,27 +41,27 @@
   </style>
 </head>
 <body>
-  <div class="player">
-    <h1>HAY VIDA EN JESÚS</h1>
-    <button id="play-pause">▶ Reproducir</button>
-    <audio id="audio" src="https://stream.zeno.fm/x1egfvxsjb3tv" crossorigin="anonymous"></audio>
-  </div>
+<div class="player">
+  <h1>HAY VIDA EN JESÚS</h1>
+  <button id="play-pause">▶ Reproducir</button>
+  <audio id="audio" src="https://stream.zeno.fm/x1egfvxsjb3tv" crossorigin="anonymous"></audio>
+</div>
 
-  <script>
-    const audio = document.getElementById('audio');
-    const button = document.getElementById('play-pause');
-    let isPlaying = false;
+<script>
+  const audio = document.getElementById('audio');
+  const button = document.getElementById('play-pause');
+  let isPlaying = false;
 
-    button.addEventListener('click', () => {
-      if (isPlaying) {
-        audio.pause();
-        button.textContent = "▶ Reproducir";
-      } else {
-        audio.play();
-        button.textContent = "⏸ Pausar";
-      }
-      isPlaying = !isPlaying;
-    });
-  </script>
+  button.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      button.textContent = "▶ Reproducir";
+    } else {
+      audio.play();
+      button.textContent = "⏸ Pausar";
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
 </body>
 </html>
