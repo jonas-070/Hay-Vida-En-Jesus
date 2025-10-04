@@ -1,7 +1,10 @@
 [
   {
-    "name": "Hay Vida En Jesus",
-    "url": "http://s2.myradiostream.com:5456/stream"
+    "name": "Hay Vida En Jesús",
+    "url": "http://s2.myradiostream.com:5456/stream",
+    "genre": "Cristiana",
+    "bitrate": "128kbps",
+    "country": "Bolivia",
+    "logo": "imagenes/logo.png"
   }
-
 ]
