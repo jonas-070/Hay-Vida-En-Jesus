@@ -5,63 +5,36 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Hay Vida En Jesús</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .player {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      flex-direction:column;
-      gap:20px;
-    }
-
-    #play-pause {
-      background:#1ea7fd;
-      border:none;
-      padding:15px 25px;
-      border-radius:12px;
-      font-size:1.5rem;
-      font-weight:bold;
-      cursor:pointer;
-      color:#02111a;
-      box-shadow:0 4px 8px rgba(0,0,0,0.3);
-      transition:0.3s;
-    }
-
-    #play-pause:hover {
-      transform:scale(1.05);
-    }
-
-    h1 {
-      font-size:2rem;
-      text-align:center;
-      color:white;
-      text-shadow:2px 2px 8px rgba(0,0,0,0.7);
-    }
-  </style>
 </head>
 <body>
-<div class="player">
-  <h1>HAY VIDA EN JESÚS</h1>
-  <button id="play-pause">▶ Reproducir</button>
-  <audio id="audio" src="https://stream.zeno.fm/x1egfvxsjb3tv" crossorigin="anonymous"></audio>
-</div>
+  <!-- Texto animado -->
+  <div class="mensaje">
+    HAY VIDA EN JESÚS
+  </div>
 
-<script>
-  const audio = document.getElementById('audio');
-  const button = document.getElementById('play-pause');
-  let isPlaying = false;
+  <!-- Botón de reproducción -->
+  <div class="player">
+    <button id="play-pause">▶ Reproducir</button>
+    <audio id="audio" src="https://stream.zeno.fm/x1egfvxsjb3tv" crossorigin="anonymous"></audio>
+  </div>
 
-  button.addEventListener('click', () => {
-    if (isPlaying) {
-      audio.pause();
-      button.textContent = "▶ Reproducir";
-    } else {
-      audio.play();
-      button.textContent = "⏸ Pausar";
-    }
-    isPlaying = !isPlaying;
-  });
-</script>
+  <script>
+    const audio = document.getElementById('audio');
+    const button = document.getElementById('play-pause');
+    let isPlaying = false;
+
+    button.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = "▶ Reproducir";
+      } else {
+        audio.play();
+        button.textContent = "⏸ Pausar";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
 </body>
 </html>
+
+
