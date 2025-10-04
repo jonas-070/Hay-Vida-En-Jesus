@@ -7,35 +7,32 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Texto animado -->
-  <div class="mensaje">
-    HAY VIDA EN JESÚS
-  </div>
+<!-- Texto animado -->
+<div class="mensaje">
+  HAY VIDA EN JESÚS
+</div>
 
-  <!-- Botón de reproducción -->
-  <div class="player">
-    <button id="play-pause">▶ Reproducir</button>
-    <audio id="audio" src="http://s2.myradiostream.com:5456/;stream.mp3" crossorigin="anonymous"></audio>
-  </div>
+<!-- Botón de reproducción -->
+<div class="player">
+  <button id="play-pause">▶ Reproducir</button>
+  <audio id="audio" src="http://s2.myradiostream.com:5456/;stream.mp3" crossorigin="anonymous"></audio>
+</div>
 
-  <script>
-    const audio = document.getElementById('audio');
-    const button = document.getElementById('play-pause');
-    let isPlaying = false;
+<script>
+  const audio = document.getElementById('audio');
+  const button = document.getElementById('play-pause');
+  let isPlaying = false;
 
-    button.addEventListener('click', () => {
-      if (isPlaying) {
-        audio.pause();
-        button.textContent = "▶ Reproducir";
-      } else {
-        audio.play();
-        button.textContent = "⏸ Pausar";
-      }
-      isPlaying = !isPlaying;
-    });
-  </script>
+  button.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      button.textContent = "▶ Reproducir";
+    } else {
+      audio.play();
+      button.textContent = "⏸ Pausar";
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
 </body>
 </html>
-
-
-
