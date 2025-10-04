@@ -1,10 +1,15 @@
 body {
   margin:0;
   font-family: Inter, Segoe UI, Roboto, Arial;
-  background-image: url("imagenes/fondo.jpg"); /* tu foto */
+  background-image: url("imagenes/fondo.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /* Texto principal animado */
@@ -19,25 +24,16 @@ body {
   font-weight: bold;
   text-shadow: 0 0 10px rgba(57,255,20,0.9),
                0 0 20px rgba(57,255,20,0.8),
-               0 0 30px rgba(135,206,250,0.8); /* mezcla de verde + celeste */
+               0 0 30px rgba(135,206,250,0.8);
   opacity: 0;
-
-  /* Animaciones */
   animation: aparecer 2s ease-in-out forwards, brillo 2.5s ease-in-out 2s infinite alternate;
 }
 
 @keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Brillo neón celeste */
 @keyframes brillo {
   0% {
     text-shadow: 0 0 10px rgba(57,255,20,0.7),
@@ -72,8 +68,21 @@ body {
   transition:0.3s;
 }
 
+/* Hover */
 #play-pause:hover {
   transform:scale(1.05);
+}
+
+/* Ajustes móviles */
+@media (max-width: 600px) {
+  .mensaje {
+    font-size: 2rem;
+    height: 50vh;
+  }
+  #play-pause {
+    padding: 20px 30px;
+    font-size: 2rem;
+  }
 }
 
 

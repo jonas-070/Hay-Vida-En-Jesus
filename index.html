@@ -15,7 +15,10 @@
 <!-- Botón de reproducción -->
 <div class="player">
   <button id="play-pause">▶ Reproducir</button>
-  <audio id="audio" src="http://s2.myradiostream.com:5456/stream" crossorigin="anonymous"></audio>
+  <audio id="audio"
+         src="https://cors-anywhere.herokuapp.com/http://s2.myradiostream.com:5456/stream"
+         crossorigin="anonymous">
+  </audio>
 </div>
 
 <!-- Script para play/pausa -->
@@ -37,4 +40,6 @@
 </script>
 </body>
 </html>
+
+
 
